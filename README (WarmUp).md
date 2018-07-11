@@ -23,10 +23,7 @@ Môžeme voľne rozdelovať na okruhy inšpirované (Faraway) a doplnené (Wickh
 11. **Complete Example** - celé si to zhrnieme.    
     
     
-**BONUS** na koniec kurzu si môžeme ukázať ako robiť [R Markdown](http://rmarkdown.rstudio.com) [^1] report alebo [Shiny](https://shiny.rstudio.com/) [^2] interaktívnu aplikáciu vaších analýz (mimo hodnotenia).    
-
-[^1]: Táto stránka bola vytvorená v R Markdown 
-[^2]: Príklad na Shiny aplikáciu <https://samuell.shinyapps.io/NRSR2016/>
+**BONUS** na koniec kurzu si môžeme ukázať ako robiť [R Markdown](http://rmarkdown.rstudio.com) report alebo [Shiny](https://shiny.rstudio.com/) interaktívnu aplikáciu vaších analýz (mimo hodnotenia).
 
 
 # Použitá Literatúra
