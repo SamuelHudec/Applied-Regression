@@ -6,9 +6,9 @@ Slovo **moderná** v názve predmetu je opodstatnené vďaka [prostrediu R](http
 
 [Viac detailov](https://samuelhudec.github.io/WarmUP)
 
-# Sylabus
+# Cvičenia
 
-Môžeme voľne rozdelovať na okruhy inšpirované (Faraway) a doplnené (Wickham, Grolemund).  
+Študent si každý týždeň odnesie nový poznatok zo základov regresie krok za krokom. Pri študovaní kladiem dôraz na obsah učiva, pretože pokladám za dôležité podávať znalosti postupne v malom množstve a zrozumitelne. Na svojích cvičeniach vyžadujem vzájomnú interakciu a sú plné otázok. Jednotlivé úlohy sú vzájomne poprepájané a slúžia na ilustráciu poprípade praktické vysvetlenie niektorých ťažkých pojmou regresie. Domáce úlohy taktiež priamo naviazané na tieto cvičenia.
 
 1. [**Exploratory data analysis**](https://samuelhudec.github.io/Ex01_Visualization) - v skratke EDA po slovensky Obhliadka dát pred analýzou, ktorá zahŕňa hlavne vizualizáciu.    
 2. [**Parameter estimation**](https://samuelhudec.github.io/Ex02_Estimation) - odhadnutie parametrov modelu nie je vždy jednoznačné. 
@@ -21,9 +21,6 @@ Môžeme voľne rozdelovať na okruhy inšpirované (Faraway) a doplnené (Wickh
 9. **Model selection** - voľba modelu s množstva možností.    
 10. **Shrinkage** - ak má model "veľa" nepotrebných parametrov.    
 11. **Complete Example** - celé si to zhrnieme.    
-    
-    
-**BONUS** na koniec kurzu si môžeme ukázať ako robiť [R Markdown](http://rmarkdown.rstudio.com) report alebo [Shiny](https://shiny.rstudio.com/) interaktívnu aplikáciu vaších analýz (mimo hodnotenia).
 
 
 # Použitá Literatúra
