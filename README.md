@@ -10,10 +10,10 @@ Slovo **moderná** v názve predmetu je opodstatnené vďaka [prostrediu R](http
 
 Môžeme voľne rozdelovať na okruhy inšpirované (Faraway) a doplnené (Wickham, Grolemund).  
 
-1. **Exploratory data analysis** - v skratke EDA po slovensky Obhliadka dát pred analýzou, ktorá zahŕňa hlavne vizualizáciu.    
-2. **Parameter estimation** - odhadnutie parametrov modelu nie je vždy jednoznačné. 
-3. **Inference** - testy a konfidenčné intervaly.   
-4. **Prediction** - ako model dokáže predikovať.    
+1. [https://samuelhudec.github.io/Ex01_Visualization](**Exploratory data analysis**) - v skratke EDA po slovensky Obhliadka dát pred analýzou, ktorá zahŕňa hlavne vizualizáciu.    
+2. [https://samuelhudec.github.io/Ex02_Estimation.html](**Parameter estimation**) - odhadnutie parametrov modelu nie je vždy jednoznačné. 
+3. [https://samuelhudec.github.io/Ex03_Inference.html](**Inference**) - testy a konfidenčné intervaly.   
+4. [https://samuelhudec.github.io/Ex04_Prediction](**Prediction**) - ako model dokáže predikovať.    
 5. **Diagnostics** - či model spĺňa predpoklady.    
 6. **Predictors** - vlastnosti odhadnutých predikotorov.    
 7. **Robust** - robustný model pomáha pri nezvyčajných pozorovaniach.    
