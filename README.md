@@ -8,7 +8,7 @@ Slovo **moderná** v názve predmetu je opodstatnené vďaka [prostrediu R](http
 
 # Cvičenia
 
-Študent si každý týždeň odnesie nový poznatok zo základov regresie krok za krokom. Pri študovaní kladiem dôraz na obsah učiva, pretože pokladám za dôležité podávať znalosti postupne v malom množstve a zrozumitelne. Na svojích cvičeniach vyžadujem vzájomnú interakciu a sú plné otázok. Jednotlivé úlohy sú vzájomne poprepájané a slúžia na ilustráciu poprípade praktické vysvetlenie niektorých ťažkých pojmou regresie. Domáce úlohy taktiež priamo naviazané na tieto cvičenia.
+Študent si krok za krokom každý týždeň odnesie nový poznatok zo základov regresie. Pri študovaní kladiem dôraz na obsah učiva, pretože pokladám za dôležité podávať vedomosti postupne v malom množstve a hlavne zrozumitelne. Na svojích cvičeniach vyžadujem vzájomnú interakciu a sú plné otázok. Vzájomne poprepájané úlohy slúžia na ilustráciu a praktické vysvetlenie niektorých ťažkých pojmov regresie. Domáce úlohy taktiež priamo naväzujú na úlohy v cvičeniach.
 
 1. [**Exploratory data analysis**](https://samuelhudec.github.io/Ex01_Visualization) - v skratke EDA po slovensky Obhliadka dát pred analýzou, ktorá zahŕňa hlavne vizualizáciu.    
 2. [**Parameter estimation**](https://samuelhudec.github.io/Ex02_Estimation) - odhadnutie parametrov modelu nie je vždy jednoznačné. 
