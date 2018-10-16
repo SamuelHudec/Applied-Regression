@@ -10,17 +10,16 @@ Slovo **moderná** v názve predmetu je opodstatnené vďaka [prostrediu R](http
 
 Študent si krok za krokom každý týždeň odnesie nový poznatok zo základov regresie. Pri študovaní kladiem dôraz na obsah učiva, pretože pokladám za dôležité podávať vedomosti postupne v malom množstve a hlavne zrozumitelne. Na svojích cvičeniach vyžadujem vzájomnú interakciu a sú plné otázok. Vzájomne poprepájané úlohy slúžia na ilustráciu a praktické vysvetlenie niektorých ťažkých pojmov regresie. Domáce úlohy taktiež priamo naväzujú na úlohy v cvičeniach.
 
-1. [**Exploratory data analysis**](https://samuelhudec.github.io/Ex01_Visualization) - v skratke EDA po slovensky Obhliadka dát pred analýzou, ktorá zahŕňa hlavne vizualizáciu.    
-2. [**Parameter estimation**](https://samuelhudec.github.io/Ex02_Estimation) - odhadnutie parametrov modelu nie je vždy jednoznačné. 
-3. [**Inference**](https://samuelhudec.github.io/Ex03_Inference) - testy a konfidenčné intervaly.   
-4. [**Prediction**](https://samuelhudec.github.io/Ex04_Prediction) - ako model dokáže predikovať.    
-5. **Diagnostics** - či model spĺňa predpoklady.    
-6. **Predictors** - vlastnosti odhadnutých predikotorov.    
-7. **Robust** - robustný model pomáha pri nezvyčajných pozorovaniach.    
-8. **Transformation** - niekedy model vyžaduje transformáciu regresorov.    
-9. **Model selection** - voľba modelu s množstva možností.    
-10. **Shrinkage** - ak má model "veľa" nepotrebných parametrov.    
-11. **Complete Example** - celé si to zhrnieme.    
+1. [**Exploratory data analysis**](https://samuelhudec.github.io/Ex01_Visualization)
+2. [**Parameter estimation**](https://samuelhudec.github.io/Ex02_Estimation)
+3. [**Inference**](https://samuelhudec.github.io/Ex03_Inference)  
+4. [**Prediction**](https://samuelhudec.github.io/Ex04_Prediction)
+5. **Diagnostics**
+6. **Predictors** 
+7. **Robust**  
+8. **Transformation**
+9. **Model selection**
+10. **Shrinkage**
 
 Vhodným editorom prostredia R je Rstudio, v takomto prípade som pre vás spísal pár rád na písanie a obsluhu [Rka.](https://samuelhudec.github.io/RStudioIntro)
 
