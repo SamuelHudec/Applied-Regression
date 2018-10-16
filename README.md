@@ -4,16 +4,16 @@ Tento kurz je venovaný osvojeniu si základných praktických zručností line�
 
 Slovo **moderná** v názve predmetu je opodstatnené vďaka [prostrediu R](https://www.r-project.org/) a [RStudiu](https://www.rstudio.com/), ktoré sa dnes pokladá za jeden z najrýchlejšie rozvýjajúcich a najkompatibilnejších programovacích prostredí na Importovanie, úpravu, transformáciu, vizualiáciu a modelovanie dát. R slúži okrem klasického počítania (lepšej kalkulačky) a už spomenutých možnosti aj na vytváranie profesionálnych reportov. Okrem iného je tu možnosť zaobaliť vaše výsledky do interaktívnej online aplikácie.
 
-
+[Viac detailov](https://samuelhudec.github.io/WarmUP)
 
 # Sylabus
 
 Môžeme voľne rozdelovať na okruhy inšpirované (Faraway) a doplnené (Wickham, Grolemund).  
 
-1. [https://samuelhudec.github.io/Ex01_Visualization](**Exploratory data analysis**) - v skratke EDA po slovensky Obhliadka dát pred analýzou, ktorá zahŕňa hlavne vizualizáciu.    
-2. [https://samuelhudec.github.io/Ex02_Estimation.html](**Parameter estimation**) - odhadnutie parametrov modelu nie je vždy jednoznačné. 
-3. [https://samuelhudec.github.io/Ex03_Inference.html](**Inference**) - testy a konfidenčné intervaly.   
-4. [https://samuelhudec.github.io/Ex04_Prediction](**Prediction**) - ako model dokáže predikovať.    
+1. [**Exploratory data analysis**](https://samuelhudec.github.io/Ex01_Visualization) - v skratke EDA po slovensky Obhliadka dát pred analýzou, ktorá zahŕňa hlavne vizualizáciu.    
+2. [**Parameter estimation**](https://samuelhudec.github.io/Ex02_Estimation) - odhadnutie parametrov modelu nie je vždy jednoznačné. 
+3. [**Inference**](https://samuelhudec.github.io/Ex03_Inference) - testy a konfidenčné intervaly.   
+4. [**Prediction**](https://samuelhudec.github.io/Ex04_Prediction) - ako model dokáže predikovať.    
 5. **Diagnostics** - či model spĺňa predpoklady.    
 6. **Predictors** - vlastnosti odhadnutých predikotorov.    
 7. **Robust** - robustný model pomáha pri nezvyčajných pozorovaniach.    
