@@ -22,6 +22,7 @@ Slovo **moderná** v názve predmetu je opodstatnené vďaka [prostrediu R](http
 10. **Shrinkage** - ak má model "veľa" nepotrebných parametrov.    
 11. **Complete Example** - celé si to zhrnieme.    
 
+Vhodným editorom prostredia R je Rstudio, v takomto prípade som pre vás spísal pár rád na písanie a obsluhu [Rka.](https://samuelhudec.github.io/RStudioIntro)
 
 # Použitá Literatúra
 
