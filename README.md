@@ -14,12 +14,12 @@ Slovo **moderná** v názve predmetu je opodstatnené vďaka [prostrediu R](http
 2. [**Parameter estimation**](https://samuelhudec.github.io/Ex02_Estimation)
 3. [**Inference**](https://samuelhudec.github.io/Ex03_Inference)  
 4. [**Prediction**](https://samuelhudec.github.io/Ex04_Prediction)
-5. **Diagnostics**
-6. **Predictors** 
-7. **Robust**  
-8. **Transformation**
-9. **Model selection**
-10. **Shrinkage**
+5. [**Diagnostics**](https://samuelhudec.github.io/Ex05_Diagnostics)
+6. [**Predictors**](https://samuelhudec.github.io/Ex06_Predictors)
+7. [**Robust**](https://samuelhudec.github.io/Ex07_Robust)
+8. [**Transformation**](https://samuelhudec.github.io/Ex08_Transformation)
+9. [**Model selection**](https://samuelhudec.github.io/Ex09_Model_Selection)
+10. [**Shrinkage**](https://samuelhudec.github.io/Ex10_Shrinkage)
 
 Vhodným editorom prostredia R je Rstudio, v takomto prípade som pre vás spísal pár rád na písanie a obsluhu [Rka.](https://samuelhudec.github.io/RStudioIntro)
 
