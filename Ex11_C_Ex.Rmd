@@ -1,0 +1,164 @@
+---
+title: "Ex11 Complete example"
+author: "Samuel Hudec"
+output: html_document
+---
+
+Úspešne sme si prešli od vizualizácie až po machine learning-ové metódy regresie. Predstavené postupy sú **nutné minimum**, čo by mal každý správny štatistik využívajúci regresiu ovládať. Táto **špička ladovca** poskytuje služný základ na prácu s dátami a zaručuje Vám štart k bližšiemu štúdiu tejto problematiky. 
+
+V naväzujúcom kurze **Moderná aplikovaná regresia 2** bude všetko, čo ste sa tu naučili pokladané za **samozrejmé**. Čaká na vás krásny svet zovšeobecneného lineárneho modelu, neparametrickej regresie, bootstrap, kvantilovej regresie a nakoniec zovšeobecnený aditívny model.
+
+Ako posledné nás čaká zhrnutie nadobudnutých znalostí. V roku 2017 sme si prešli kompletný príklad **INSURANCE REDLINING** (Faraway) 12. kapitola. R skript a komentáre najdete [tu](https://github.com/SamuelHudec/Applied-Regression/blob/master/Ex11_CompleteExample.R). 
+
+
+```{r,warning = FALSE,message = FALSE}
+# zavoláme knižnice
+library(faraway)
+library(tidyverse)
+library(ggfortify)
+library(GGally)
+library(plotly)
+theme_set(theme_minimal())
+```
+
+
+## Car Manufacturer's Suggested Retail Price
+
+```{r,warning = FALSE,message = FALSE, cache = TRUE}
+cars = read.table("https://raw.githubusercontent.com/SamuelHudec/Applied-Regression/master/car_prices.csv",header = T, sep = ",")
+```
+
+Autám každý rozumie a preto si teraz zobereieme za úlohu analyzovať ich trhové ceny. Dáta vezmeme zo známe stránky [Kaggle](https://www.kaggle.com/CooperUnion/cardataset), tie si môžete stiahnúť buď priamo zo stránky alebo [linku](https://raw.githubusercontent.com/SamuelHudec/Applied-Regression/master/car_prices.csv).
+
+Naša odozva bude
+
+* **MSRP** - Manufacturer's Suggested Retail Price (Integer)
+
+a jej prediktory sú
+
+* **Make** - Manufactuer (factor)
+* **Model** - Car model (factor)
+* **Year** - Car year (integer)
+* **Engine_Fuel_Type** - Car fuel type (factor)
+* **Engine_HP** - Car engine horse power (integer)
+* **Engine_Cylinders** - Number of car engine cylinders (integer)
+* **Transmission_Type** - Car transmission type (factor)
+* **Driven_Wheels** - Car driven wheel type (factor)
+* **Number_of_Doors** - Number of doors (integer)
+* **Market_Category** - Car category (factor) 
+* **Vehicle_Size** - Car type (factor)
+* **Vehicle_Style** - Car style (factor)
+* **highway_MPG** - Highway miles per galon (integer)
+* **city_mpg** - City miles per galon (integer)
+* **Popularity** - Some measure of popularity (integer)
+
+V našom príklade sa zameriame **hlavne na pochopenie** ceny vozidla odporúčaného výrobcom. Teda primárne budeme stavať popisný model. Na konci sa pozrieme aj na predikčnú silu modelu, ale len okrajovo.
+
+## Úprava datasetu
+
+Náš dataset obsahuje celkovo 16 stĺpcou a 11 914 riadkov. Cena starších vozidiel nás nemusí už dnes zaujímať, tak si z datasetu vyfiltrujeme najnovšie a to z roku 2017. Zároveň vzhľadom na veľkosť datasetu si odfiltrujeme aj neznáme záznami (môžeme si to dovoliť lebo ich nie je veľa v pomere k dátam). *Poznámka: NAs sa dajú riešiť aj inak, ale to sme nemali.* Dátovu vzorku si rozdelíme na trénovaciu a testovaciu v pomere 1:1 aby sme mohli na konci overiť predikčnú silu nášho **primárne popisného modelu**. 
+
+
+```{r, cache = TRUE, warning = FALSE}
+set.seed(1112)
+cars = na.omit(cars)
+cars = cars %>% filter(Year == 2017) %>% mutate(id = row_number()) %>% select(-Year)
+cars_train = cars %>% sample_frac(1/2, replace=FALSE) 
+cars_test = anti_join(cars, cars_train, by="id")
+cars_train = cars_train %>% select(-id)
+cars_test = cars_test %>% select(-id)
+```
+
+***
+
+## Vizualizácia
+
+Pozrime sa na dáta holisticky cez popisnú štatistiku.
+
+```{r, cache = TRUE, warning = FALSE, echo=FALSE}
+summary(cars_train)
+```
+
+Teraz náš dataset obsahuje 824 riadkov. Ako prvé si všimneme výrobcu, medzi top 3 sa nachádzajú americké a japonské spoločnosti, čo sa dalo čakať kedže sa jedná o dáta z amerického trhu. To isté sa odzrkadluje aj v ostatných prediktoroch ako napríklad typ prevodovky a počet valcov. Zaujímavé je očividné nezvyčajné pozorovanie **vozidlo**, ktoré dokáže na jeden galón paliva prejsť až 354 a 137 míl.
+
+* **vedeli by ste to intuitívne vysvetliť?**
+
+Prirodzene aj v cene sa nachádzajú nezvyčajné pozorovania. Stále nám ostali neklasifikované trhové kategórie, tieto už nebudeme eliminovať, bolo by to zbytočné.
+
+* **Je niečo zaujímavé čo ste si vy všimli?**
+
+Zakreslime si scale miery do pároveho grafu a ofarbime si ich podľa `Transmission_Type` typu prevodovky.
+
+```{r, message = FALSE,fig.width =9,fig.height =9, cache =TRUE}
+ggpairs(data = cars_train, 12:15, mapping = ggplot2::aes(color = Transmission_Type, alpha = 0.5))
+```
+
+Pozrime sa bližšie na niektoré.
+
+```{r, fig.width =9,fig.height =6, cache =TRUE}
+pp = ggplot(data=cars_train, aes(y=MSRP,x=city_mpg, col=as.factor(Engine_Cylinders))) + geom_point(alpha= 0.6) + guides(col=guide_legend(title="cyl"))
+ggplotly(pp)
+```
+
+```{r, fig.width =9,fig.height =6, cache =TRUE}
+ggplot(data=cars_train, aes(y=MSRP,x=Engine_HP, col=as.factor(Engine_Cylinders))) + geom_point(alpha= 0.6) + guides(col=guide_legend(title="cyl"))
+```
+
+```{r, fig.width =9,fig.height =6, cache =TRUE}
+pp = ggplot(data=cars_train, aes(y=MSRP,x=Popularity, col=Make)) + geom_point(alpha= 0.6) + guides(col=guide_legend(title="mnf"))
+ggplotly(pp)
+```
+
+* **Čo bude asi tak miera popularity?**
+
+Skusme sa pozrieť na rozloženie niektorých faktorov u ktorých predpokldaáme že cena bude linearne alebo nelineárne rásť/klesať.
+
+```{r, fig.width =9,fig.height =6, cache =TRUE}
+ggplot(data=cars_train, aes(y=MSRP,x=as.factor(Engine_Cylinders), fill=as.factor(Engine_Cylinders))) + geom_boxplot() + labs(x = "Num. of cylinders") + guides(fill=FALSE)
+```
+
+* **Zahrnuli by ste túto premennú do modelu ako factor? alebo iné riešenie?**
+
+
+```{r, fig.width =9,fig.height =6, cache =TRUE}
+ggplot(data=cars_train, aes(y=MSRP,x=as.factor(Driven_Wheels), fill=as.factor(Driven_Wheels))) + geom_boxplot() + labs(x = NULL) + guides(fill=FALSE)
+```
+
+```{r, fig.width =9,fig.height =6, cache =TRUE}
+ggplot(data=cars_train, aes(y=MSRP,x=as.factor(Number_of_Doors), fill=as.factor(Number_of_Doors))) + geom_boxplot() + labs(x = "Num. of doors") + guides(fill=FALSE)
+```
+
+Ja som vybral pár factor premených môžeme si zobraziť ešte aj iné.
+
+* **Chceli by ste sa pozreiť ešte na niejaké?**
+
+## Lineárny regresný model
+
+V prvom rade by vyhodme elektromobily z hry, lebo to je diametralne odlišný trh a keby máme viac dát, tak ich môžeme modelovať zvlášt. Aby som zredukoval počet premenných, tak spočítam priemerný dojazd.
+
+```{r, cache = TRUE}
+cars_train = cars_train %>% 
+  filter(Engine_Fuel_Type != "electric") %>% 
+  mutate(mpg = (city_mpg + highway_MPG)/2)
+```
+
+Začnime plným modelom s `MSRP` ako odozvou. Toto je dobrý začiatok na to aby sme sa pozreli na to ako sa odhady správajú. Napíšem si do argumentu funkcie všetky premenné aby som ích mali lepšie pod kontrolov.
+
+```{r, cache=TRUE}
+mo = lm(MSRP ~ Make + Engine_HP + Engine_Cylinders + Engine_Fuel_Type + Transmission_Type + Driven_Wheels + Vehicle_Size + mpg + Popularity, data = cars_train)
+knitr::kable(mo$coef)
+```
+
+S toľkými kategorickými premennými si ťažko poradíme. Pozrime sa ale napríklad na posledné dva prediktory, mpg je kladný pričom by sme odhadovali podľa obrázka záporný. Popularita to zase nezvládla.
+
+
+
+
+
+
+
+
+
+
+
+
